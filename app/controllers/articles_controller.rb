@@ -23,7 +23,7 @@ class ArticlesController < ApplicationController
 
     def edit
     end
-    
+
     def update
         if @article.update(article_params)
             redirect_to article_path(@article), notice: '更新できました'
@@ -39,12 +39,11 @@ class ArticlesController < ApplicationController
         redirect_to root_path, notice: '削除に成功しました'
     end
 
-    
     private
     def article_params
         params.require(:article).permit(:title, :content)
     end
-    
+
     def set_article
         @article = Article.find(params[:id])
     end
