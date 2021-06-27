@@ -28,7 +28,7 @@ class Article < ApplicationRecord
 
     validate :validate_title_and_content_length
 
-    belongs_to :user, dependent: :destroy
+    belongs_to :user
 
     # numericality 数字のチェック
     def display_created_at
