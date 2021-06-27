@@ -14,6 +14,7 @@
 #  index_articles_on_user_id  (user_id)
 #
 class Article < ApplicationRecord
+	has_one_attached :eyecatch
 	# presence 入力されているかチェック
 	validates :title, presence: true
 	# length 長さをチェック
