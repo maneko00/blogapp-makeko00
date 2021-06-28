@@ -8,7 +8,7 @@ class ProfilesController < ApplicationController
     def edit
         @profile = current_user.prepare_profile
     end
-    
+
     def update
         @profile = current_user.prepare_profile
         @profile.assign_attributes(profile_params)

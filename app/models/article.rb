@@ -14,6 +14,7 @@
 #  index_articles_on_user_id  (user_id)
 #
 class Article < ApplicationRecord
+	has_one_attached :eyecatch
 	# presence 入力されているかチェック
 	validates :title, presence: true
 	# length 長さをチェック
@@ -29,6 +30,7 @@ class Article < ApplicationRecord
 	validate :validate_title_and_content_length
 
 	has_many :comments, dependent: :destroy
+	has_many :likes, dependent: :destroy
 	belongs_to :user
 
 	# numericality 数字のチェック
@@ -37,7 +39,11 @@ class Article < ApplicationRecord
 	end
 
     def author_name
-			user.display_name
+		user.display_name
+    end
+
+    def like_count
+		likes.count
     end
 
     private
