@@ -5,7 +5,13 @@ Rails.application.routes.draw do
 
   resources :articles do
     resources :comments, only: [:new, :create]
+    
     resource :like, only: [:create, :destroy]
+  end
+  
+  resources :accounts, only: [:show] do
+    resources :follows, only: [:create]
+    resources :unfollows, only: [:create]
   end
 
   resource :profile, only: [:show, :edit, :update]
