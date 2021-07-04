@@ -1,4 +1,7 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
+  mount Sidekiq::Web => '/sidekiq' if Rails.env.development?
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
 
   devise_for :users
@@ -8,10 +11,10 @@ Rails.application.routes.draw do
 
   resources :articles do
     resources :comments, only: [:index, :new, :create]
-    
+
     resource :like, only: [:show, :create, :destroy]
   end
-  
+
   resources :accounts, only: [:show] do
     resources :follows, only: [:create]
     resources :unfollows, only: [:create]
