@@ -4,8 +4,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.6.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
 gem 'pg', '>= 0.18', '< 2.0'
+gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets
@@ -20,15 +20,17 @@ gem 'jbuilder', '~> 2.7'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-gem 'annotate'
 gem 'active_decorator'
 gem 'active_model_serializers'
+gem 'annotate'
 gem 'aws-sdk-s3', require: false
 gem 'better_errors'
 gem 'binding_of_caller'
 gem 'devise'
 gem 'faker'
 gem 'hamlit'
+gem 'sidekiq'
+
 # Use Active Storage variant
 gem 'image_processing', '~> 1.2'
 
@@ -49,10 +51,10 @@ group :development do
   gem 'web-console', '>= 3.3.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'erb2haml'
-  gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'letter_opener'
   gem 'letter_opener_web', '~>1.0'
+  gem 'spring'
+  gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
 group :test do
