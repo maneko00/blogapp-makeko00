@@ -1,6 +1,7 @@
 AllCops:
   TargetRubyVersion: 2.6
   DisabledByDefault: true
+  SuggestExtensions: false
   Exclude:
     - db/schema.rb
     - vendor/bundle/**/*
