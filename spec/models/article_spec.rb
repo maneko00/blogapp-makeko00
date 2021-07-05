@@ -7,7 +7,7 @@ RSpec.describe Article, type: :model do
       password: 'password'
     })
   end
-  
+
   context 'タイトルと内容が入力されている場合' do
     let!(:article) do
       user.articles.build({
